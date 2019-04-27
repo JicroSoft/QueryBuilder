@@ -18,6 +18,7 @@ package com.itfsw.query.builder.support.model;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -28,8 +29,10 @@ import java.util.List;
  * @time:2017/10/30 16:00
  * ---------------------------------------------------------------------------
  */
-public class JsonRule implements IGroup, IRule {
-    // --------------------------- Rule --------------------------------------
+public class JsonRule implements IGroup, IRule, Serializable {
+	private static final long serialVersionUID = 6208308789331671387L;
+	
+	// --------------------------- Rule --------------------------------------
     private String id;
     private String field;
     private String type;

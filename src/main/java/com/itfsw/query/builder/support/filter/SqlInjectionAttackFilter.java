@@ -92,7 +92,7 @@ public class SqlInjectionAttackFilter implements IRuleFilter {
                 // field too long, MYSQL's max length is 64, ORACLE's max length is 30 and MS_SQL's max length is 128
                 throw new FilterException("rule's field is too long for:" + jsonRule);
             }
-            if (!Pattern.matches("^[A-Za-z0-9_]+$", field)) {
+            if (!Pattern.matches("^[A-Za-z0-9\\u4e00-\\u9fa5_@]+$", field)) {
                 // can not use Special word
                 throw new FilterException("rule's field can only use [A-Za-z0-9_] for:" + jsonRule);
             }
