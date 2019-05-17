@@ -71,7 +71,7 @@ public class SqlQueryResult extends AbstractResult {
                 if (param instanceof Time) {
                     str = new StringBuffer(new SimpleDateFormat("HH:mm:ss").format(param));
                 } else if (param instanceof Date || param instanceof java.sql.Date) {
-                    str = new StringBuffer(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(param));
+                    str = new StringBuffer(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(param));
                 } else {
                     str = new StringBuffer(param.toString());
                 }
