@@ -65,7 +65,7 @@ public class DatetimeConvertFilterTest {
         Assert.assertTrue(result.getParams().get(2) instanceof java.sql.Time);
         Assert.assertEquals("1970-01-01 14:30:00", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(result.getParams().get(2)));
 
-        Assert.assertEquals("`datetime` = '2017-11-03 14:25:12' AND `date` = '2017-11-15 00:00:00' AND `time` = '14:30:00'", result.getQuery(true));
+        Assert.assertEquals("`datetime` = '2017-11-03 14:25:12.000' AND `date` = '2017-11-15 00:00:00.000' AND `time` = '14:30:00'", result.getQuery(true));
     }
 
     /**
@@ -124,6 +124,6 @@ public class DatetimeConvertFilterTest {
         Assert.assertTrue(result.getParams().get(2) instanceof java.sql.Time);
         Assert.assertEquals("1970-01-01 14:30:00", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(result.getParams().get(2)));
 
-        Assert.assertEquals("`datetime` = '2017-11-03 14:25:12' AND `date` = '2017-11-15 00:00:00' AND `time` = '14:30:00'", result.getQuery(true));
+        Assert.assertEquals("`datetime` = '2017-11-03 14:25:12.000' AND `date` = '2017-11-15 00:00:00.000' AND `time` = '14:30:00'", result.getQuery(true));
     }
 }

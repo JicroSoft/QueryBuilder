@@ -117,18 +117,6 @@
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++build++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <build>
         <plugins>
-            <!-- 发布中央仓库用 -->
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
             <!-- release -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -186,13 +174,13 @@
         http://www.trinea.cn/dev-tools/upload-java-jar-or-android-aar-to-maven-center-repository/
     -->
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>http://192.168.10.98:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>releases</id>
+			<url>http://192.168.10.98:8081/repository/maven-releases/</url>
+		</repository>
     </distributionManagement>
 </project>

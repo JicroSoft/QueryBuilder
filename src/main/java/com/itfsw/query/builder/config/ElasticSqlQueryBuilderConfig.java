@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017.
+ * Copyright (c) 2019.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,36 @@
  * limitations under the License.
  */
 
-package com.itfsw.query.builder.support.model.enums;
+package com.itfsw.query.builder.config;
+
+import com.itfsw.query.builder.support.model.enums.EnumDBType;
 
 /**
  * ---------------------------------------------------------------------------
  *
  * ---------------------------------------------------------------------------
- * @author: hewei
- * @time:2017/11/3 17:01
+ * @author: Junfeng.Li
+ * @time:2019/11/3 20:43
  * ---------------------------------------------------------------------------
  */
-public enum EnumDBType {
-    DB2, DERBY, H2, HSQL, INFORMIX, MS_SQL, MYSQL, ORACLE, POSTGRE_SQL, SYBASE, HANA, ELASTIC_SEARCH
+public class ElasticSqlQueryBuilderConfig {
+    private EnumDBType dbType = EnumDBType.ELASTIC_SEARCH;   // 数据库类型
+
+    /**
+     * Getter method for property <tt>dbType</tt>.
+     * @return property value of dbType
+     * @author Junfeng.Li
+     */
+    public EnumDBType getDbType() {
+        return dbType;
+    }
+
+    /**
+     * Setter method for property <tt>dbType</tt>.
+     * @param dbType value to be assigned to property dbType
+     * @author Junfeng.Li
+     */
+    public void setDbType(EnumDBType dbType) {
+        this.dbType = dbType;
+    }
 }

@@ -14,16 +14,29 @@
  * limitations under the License.
  */
 
-package com.itfsw.query.builder.support.model.enums;
+package com.itfsw.query.builder.support.parser.elasticsql;
+
+import com.itfsw.query.builder.support.model.IRule;
+import com.itfsw.query.builder.support.model.enums.EnumOperator;
+import com.itfsw.query.builder.support.model.sql.Operation;
+import com.itfsw.query.builder.support.parser.AbstractSqlRuleParser;
+import com.itfsw.query.builder.support.parser.JsonRuleParser;
 
 /**
  * ---------------------------------------------------------------------------
  *
  * ---------------------------------------------------------------------------
- * @author: hewei
- * @time:2017/11/3 17:01
+ * @author: Junfeng.Li
+ * @time:2017/10/31 17:25
  * ---------------------------------------------------------------------------
  */
-public enum EnumDBType {
-    DB2, DERBY, H2, HSQL, INFORMIX, MS_SQL, MYSQL, ORACLE, POSTGRE_SQL, SYBASE, HANA, ELASTIC_SEARCH
+public class BetweenRuleParser extends AbstractSqlRuleParser {
+
+    public boolean canParse(IRule rule) {
+        return EnumOperator.BETWEEN.equals(rule.getOperator());
+    }
+
+    public Operation parse(IRule rule, JsonRuleParser parser) {
+        return new Operation(new StringBuffer(rule.getField()).append(" BETWEEN ? AND ?"), rule.getValue());
+    }
 }
