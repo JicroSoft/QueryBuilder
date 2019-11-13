@@ -63,6 +63,10 @@ public class SqlInjectionAttackFilter implements IRuleFilter {
             this.beginningDelimiter = '[';
             this.endingDelimiter = ']';
             file = "keywords-ms-sql.txt";
+        } else if (EnumDBType.ELASTIC_SEARCH.equals(dbType)) {
+            this.beginningDelimiter = '`';
+            this.endingDelimiter = '`';
+            file = "keywords-elastic-search.txt";
         } else {
             // TODO not supports now
             throw new FilterAddException("Sorry not supports now");
